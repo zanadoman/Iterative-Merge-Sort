@@ -20,15 +20,15 @@ int merge(int arr[], int Left, int Mid, int Right)
 
     for (i = 0, j = 0, k = Left; i < n1 && j < n2; k++)
     {
-        if (left[i] <= right[j])
-        {
-            arr[k] = left[i];
-            i++;
-        }
-        else
+        if (right[j] < left[i])
         {
             arr[k] = right[j];
             j++;
+        }
+        else
+        {
+            arr[k] = left[i];
+            i++;
         }
     }
 
@@ -48,15 +48,15 @@ int merge(int arr[], int Left, int Mid, int Right)
     return 0;
 }
 
-int mergeSort(int arr[], int First, int Last)
+int mergeSort(int arr[], int Index, int Length)
 {
-    int left, mid, right, cache;
+    int size, left, mid, right, cache;
 
-    cache = Last - 1;
+    cache = Length - 1;
 
-    for (int size = 1; size < Last; size *= 2)
+    for (size = 1; size < Length; size *= 2)
     {
-        for (left = First; left < cache; left += size * 2)
+        for (left = Index; left < cache; left += size * 2)
         {
             if (cache < (mid = left + size - 1))
             {
