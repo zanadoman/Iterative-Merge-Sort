@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-int merge(int arr[], int Left, int Mid, int Right)
+int merge(double arr[], unsigned int Left, unsigned int Mid, unsigned int Right)
 {
-    int i, j, k;
-    int n1, n2;
-    int left[n1 = Mid - Left + 1];
-    int right[n2 = Right - Mid];
+    unsigned int i, j, k;
+    unsigned int n1, n2;
+    double left[n1 = Mid - Left + 1];
+    double right[n2 = Right - Mid];
 
     for (i = 0; i < n1; i++)
     {
@@ -48,9 +48,9 @@ int merge(int arr[], int Left, int Mid, int Right)
     return 0;
 }
 
-int mergeSort(int arr[], int Index, int Length)
+int mergeSort(double arr[], unsigned int Index, unsigned int Length)
 {
-    int size, left, mid, right, cache;
+    unsigned int size, left, mid, right, cache;
 
     cache = Length - 1;
 
@@ -78,25 +78,25 @@ int main(int argc, char* *argv)
 {
     srand(time(NULL));
 
-    int arr[100];
+    double arr[100];
 
-    for (int i = 0; i < sizeof(arr) / sizeof(int); i++)
+    for (int i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
         arr[i] = rand() % 90 + 10;
     }
 
-    mergeSort(arr, 0, sizeof(arr) / sizeof(int));
+    mergeSort(arr, 0, sizeof(arr) / sizeof(double));
 
-    for (int i = 0; i < sizeof(arr) / sizeof(int); i++)
+    for (int i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
-        printf("%d ", arr[i]);
+        printf("%lf ", arr[i]);
         if ((i + 1) % 10 == 0)
         {
             printf("\n");
         }
     }
 
-    for (int i = 0; i < sizeof(arr) / sizeof(int) - 1; i++)
+    for (int i = 0; i < sizeof(arr) / sizeof(double) - 1; i++)
     {
         if (arr[i + 1] < arr[i])
         {
