@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-int merge(double arr[], unsigned int Left, unsigned int Mid, unsigned int Right)
+unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mid, unsigned long long Right)
 {
-    unsigned int i, j, k;
-    unsigned int n1, n2;
+    unsigned long long i, j, k;
+    unsigned long long n1, n2;
     double left[n1 = Mid - Left + 1];
     double right[n2 = Right - Mid];
 
@@ -48,9 +48,9 @@ int merge(double arr[], unsigned int Left, unsigned int Mid, unsigned int Right)
     return 0;
 }
 
-int mergeSort(double arr[], unsigned int Index, unsigned int Length)
+unsigned char mergeSort(double arr[], unsigned long long Index, unsigned long long Length)
 {
-    unsigned int size, left, mid, right, cache;
+    unsigned long long size, left, mid, right, cache;
 
     cache = Length - 1;
 
