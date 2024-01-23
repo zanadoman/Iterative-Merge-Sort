@@ -6,8 +6,8 @@ unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mi
 {
     unsigned long long i, j, k;
     unsigned long long n1, n2;
-    double left[n1 = Mid - Left + 1];
-    double right[n2 = Right - Mid];
+    double left[(n1 = Mid - Left + 1)];
+    double right[(n2 = Right - Mid)];
 
     for (i = 0; i < n1; i++)
     {
