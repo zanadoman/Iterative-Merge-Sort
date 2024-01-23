@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
-unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mid, unsigned long long Right)
+unsigned char merge(double arr[], unsigned long long Left, unsigned long long Middle, unsigned long long Right)
 {
     unsigned long long i, j, k;
     unsigned long long n1, n2;
-    double left[(n1 = Mid - Left + 1)];
-    double right[(n2 = Right - Mid)];
+    double left[(n1 = Middle - Left + 1)];
+    double right[(n2 = Right - Middle)];
 
     for (i = 0; i < n1; i++)
     {
@@ -15,7 +15,7 @@ unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mi
     }
     for (j = 0; j < n2; j++)
     {
-        right[j] = arr[Mid + j + 1];
+        right[j] = arr[Middle + j + 1];
     }
 
     for (i = 0, j = 0, k = Left; i < n1 && j < n2; k++)
@@ -50,7 +50,7 @@ unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mi
 
 unsigned char mergeSort(double arr[], unsigned long long Index, unsigned long long Length)
 {
-    unsigned long long size, left, mid, right, cache;
+    unsigned long long size, left, middle, right, cache;
 
     cache = Length - 1;
 
@@ -58,16 +58,16 @@ unsigned char mergeSort(double arr[], unsigned long long Index, unsigned long lo
     {
         for (left = Index; left < cache; left += size * 2)
         {
-            if (cache < (mid = left + size - 1))
+            if (cache < (middle = left + size - 1))
             {
-                mid = cache;
+                middle = cache;
             }
             if (cache < (right = left + size * 2 - 1))
             {
                 right = cache;
             }
 
-            merge(arr, left, mid, right);
+            merge(arr, left, middle, right);
         }
     }
 
