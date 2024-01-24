@@ -4,8 +4,7 @@
 
 unsigned char merge(double arr[], unsigned long long Left, unsigned long long Middle, unsigned long long Right)
 {
-    unsigned long long i, j, k;
-    unsigned long long n1, n2;
+    unsigned long long i, j, k, n1, n2;
     double left[(n1 = Middle - Left + 1)];
     double right[(n2 = Right - Middle)];
 
@@ -48,15 +47,15 @@ unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mi
     return 0;
 }
 
-unsigned char mergeSort(double arr[], unsigned long long Index, unsigned long long Length)
+unsigned char mergeSort(double arr[], unsigned long long From, unsigned long long Until)
 {
     unsigned long long size, left, middle, right, cache;
 
-    cache = Length - 1;
+    cache = Until - 1;
 
-    for (size = 1; size < Length; size *= 2)
+    for (size = 1; size < Until; size *= 2)
     {
-        for (left = Index; left < cache; left += size * 2)
+        for (left = From; left < cache; left += size * 2)
         {
             if (cache < (middle = left + size - 1))
             {
