@@ -93,14 +93,14 @@ int main()
 
     double arr[100];
 
-    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double); i++)
+    for (unsigned int i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
         arr[i] = rand() % 90 + 10;
     }
 
     mergeSort(arr, 0, sizeof(arr) / sizeof(double));
 
-    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double); i++)
+    for (unsigned int i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
         printf("%lf ", arr[i]);
         if ((i + 1) % 10 == 0)
@@ -109,7 +109,7 @@ int main()
         }
     }
 
-    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double) - 1; i++)
+    for (unsigned int i = 0; i < sizeof(arr) / sizeof(double) - 1; i++)
     {
         if (arr[i + 1] < arr[i])
         {
