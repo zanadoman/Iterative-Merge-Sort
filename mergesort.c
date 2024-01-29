@@ -5,8 +5,19 @@
 unsigned char merge(double arr[], unsigned long long Left, unsigned long long Middle, unsigned long long Right)
 {
     unsigned long long i, j, k, n1, n2;
-    double left[(n1 = Middle - Left + 1)];
-    double right[(n2 = Right - Middle)];
+    double* left;
+    double* right;
+
+    if ((left = (double*)malloc(sizeof(double) * (n1 = Middle - Left + 1))) == NULL)
+    {
+        printf("merge(): Memory allocation failed\nParams: arr: %p, Left: %llu, Middle: %lld, Right: %lld", arr, Left, Middle, Right);
+        exit(1);
+    }
+    if ((right = (double*)malloc(sizeof(double) * (n2 = Right - Middle))) == NULL)
+    {
+        printf("merge(): Memory allocation failed\nParams: arr: %p, Left: %llu, Middle: %lld, Right: %lld", arr, Left, Middle, Right);
+        exit(1);
+    }
 
     for (i = 0; i < n1; i++)
     {
@@ -44,6 +55,9 @@ unsigned char merge(double arr[], unsigned long long Left, unsigned long long Mi
         k++;
     }
 
+    free(left);
+    free(right);
+
     return 0;
 }
 
@@ -73,20 +87,20 @@ unsigned char mergeSort(double arr[], unsigned long long From, unsigned long lon
     return 0;
 }
 
-int main(int argc, char* *argv)
+int main()
 {
     srand(time(NULL));
 
     double arr[100];
 
-    for (int i = 0; i < sizeof(arr) / sizeof(double); i++)
+    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
         arr[i] = rand() % 90 + 10;
     }
 
     mergeSort(arr, 0, sizeof(arr) / sizeof(double));
 
-    for (int i = 0; i < sizeof(arr) / sizeof(double); i++)
+    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double); i++)
     {
         printf("%lf ", arr[i]);
         if ((i + 1) % 10 == 0)
@@ -95,7 +109,7 @@ int main(int argc, char* *argv)
         }
     }
 
-    for (int i = 0; i < sizeof(arr) / sizeof(double) - 1; i++)
+    for (unsigned long long i = 0; i < sizeof(arr) / sizeof(double) - 1; i++)
     {
         if (arr[i + 1] < arr[i])
         {
